@@ -13,6 +13,7 @@
             overflow-x: hidden;
         }
 
+        /* Make sure the gallery behaves well on different screen sizes */
         .gallery {
             display: flex;
             flex-direction: column;
@@ -34,9 +35,10 @@
             scroll-snap-align: start; /* Align the item at the start of the viewport */
         }
 
+        /* Ensure videos scale appropriately across screen sizes */
         video {
             width: 100%;
-            max-width: 800px;
+            max-width: 100%;
             height: auto;
             object-fit: contain;
             margin-bottom: 10px;
@@ -48,6 +50,23 @@
             padding: 10px;
             border-radius: 5px;
         }
+
+        h3, p {
+            margin: 0;
+        }
+
+        /* Ensure no zooming happens on mobile by preventing scaling */
+        @viewport {
+            user-scalable: no;
+            initial-scale: 1;
+            maximum-scale: 1;
+        }
+
+        /* Prevent unexpected zooming on mobile when tapping the video */
+        body {
+            touch-action: manipulation;
+        }
+
     </style>
 </head>
 <body>
