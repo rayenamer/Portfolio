@@ -11,6 +11,7 @@
             padding: 0;
             background-color: #edf0ee;
             text-align: center;
+            overflow: hidden;
         }
         .container {
             max-width: 1200px;
@@ -21,40 +22,36 @@
             margin-bottom: 20px;
         }
         .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
         }
         .gallery-item {
             background: white;
-            overflow: hidden;
+            width: 100%;
+            height: 100vh;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: start;
         }
         .gallery-item video {
             width: 100%;
-            display: block;
+            height: 100%;
+            object-fit: cover;
         }
         .info {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
             padding: 10px;
-            text-align: left;
-        }
-        .info h3 {
-            margin: 5px 0;
-            font-size: 16px;
-        }
-        .info p {
-            color: gray;
-            font-size: 14px;
-        }
-        @media (max-width: 768px) {
-            .gallery {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-            .gallery-item {
-                width: 100%;
-            }
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -63,8 +60,8 @@
         <h1>Our Work</h1>
         <div class="gallery">
             <div class="gallery-item">
-                <video controls onplay="pauseOtherVideos(this)">
-                    <source src="https://ik.imagekit.io/sh09gdtxr/Did%20you%20know%20that%20the%20fastest%20way%20to%20know%20if%20something%20is%20right%20for%20you%20is%20to%20take%20the%20risk%20and%20try%20it%20!%20%20%20Don_t%20overthink,%20%20every%20step%20forward%20is%20a%20chance%20to%20learn,%20grow,%20and%20discover%20what%20you_re%20truly%20capable%20of.%20.mp4?updatedAt=1740880582415" type="video/mp4">
+                <video muted loop autoplay>
+                    <source src="assets/video1.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <div class="info">
@@ -73,8 +70,8 @@
                 </div>
             </div>
             <div class="gallery-item">
-                <video controls onplay="pauseOtherVideos(this)">
-                    <source src="https://ik.imagekit.io/sh09gdtxr/Did%20you%20know%20that%20the%20fastest%20way%20to%20know%20if%20something%20is%20right%20for%20you%20is%20to%20take%20the%20risk%20and%20try%20it%20!%20%20%20Don_t%20overthink,%20%20every%20step%20forward%20is%20a%20chance%20to%20learn,%20grow,%20and%20discover%20what%20you_re%20truly%20capable%20of.%20.mp4?updatedAt=1740880582415" type="video/mp4">
+                <video muted loop autoplay>
+                    <source src="assets/video2.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <div class="info">
@@ -83,8 +80,8 @@
                 </div>
             </div>
             <div class="gallery-item">
-                <video controls onplay="pauseOtherVideos(this)">
-                    <source src="https://ik.imagekit.io/sh09gdtxr/Did%20you%20know%20that%20the%20fastest%20way%20to%20know%20if%20something%20is%20right%20for%20you%20is%20to%20take%20the%20risk%20and%20try%20it%20!%20%20%20Don_t%20overthink,%20%20every%20step%20forward%20is%20a%20chance%20to%20learn,%20grow,%20and%20discover%20what%20you_re%20truly%20capable%20of.%20.mp4?updatedAt=1740880582415" type="video/mp4">
+                <video muted loop autoplay>
+                    <source src="assets/video3.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <div class="info">
@@ -93,8 +90,8 @@
                 </div>
             </div>
             <div class="gallery-item">
-                <video controls onplay="pauseOtherVideos(this)">
-                    <source src="https://ik.imagekit.io/sh09gdtxr/Did%20you%20know%20that%20the%20fastest%20way%20to%20know%20if%20something%20is%20right%20for%20you%20is%20to%20take%20the%20risk%20and%20try%20it%20!%20%20%20Don_t%20overthink,%20%20every%20step%20forward%20is%20a%20chance%20to%20learn,%20grow,%20and%20discover%20what%20you_re%20truly%20capable%20of.%20.mp4?updatedAt=1740880582415" type="video/mp4">
+                <video muted loop autoplay>
+                    <source src="assets/video4.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <div class="info">
@@ -103,8 +100,8 @@
                 </div>
             </div>
             <div class="gallery-item">
-                <video controls onplay="pauseOtherVideos(this)">
-                    <source src="https://ik.imagekit.io/sh09gdtxr/Did%20you%20know%20that%20the%20fastest%20way%20to%20know%20if%20something%20is%20right%20for%20you%20is%20to%20take%20the%20risk%20and%20try%20it%20!%20%20%20Don_t%20overthink,%20%20every%20step%20forward%20is%20a%20chance%20to%20learn,%20grow,%20and%20discover%20what%20you_re%20truly%20capable%20of.%20.mp4?updatedAt=1740880582415" type="video/mp4">
+                <video muted loop autoplay>
+                    <source src="assets/video5.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <div class="info">
@@ -113,8 +110,8 @@
                 </div>
             </div>
             <div class="gallery-item">
-                <video controls onplay="pauseOtherVideos(this)">
-                    <source src="https://ik.imagekit.io/sh09gdtxr/Did%20you%20know%20that%20the%20fastest%20way%20to%20know%20if%20something%20is%20right%20for%20you%20is%20to%20take%20the%20risk%20and%20try%20it%20!%20%20%20Don_t%20overthink,%20%20every%20step%20forward%20is%20a%20chance%20to%20learn,%20grow,%20and%20discover%20what%20you_re%20truly%20capable%20of.%20.mp4?updatedAt=1740880582415" type="video/mp4">
+                <video muted loop autoplay>
+                    <source src="assets/video6.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <div class="info">
@@ -124,15 +121,5 @@
             </div>
         </div>
     </div>
-    <script>
-        function pauseOtherVideos(currentVideo) {
-            document.querySelectorAll('video').forEach(video => {
-                if (video !== currentVideo) {
-                    video.pause();
-                    video.currentTime = 0; // Reset the video to start
-                }
-            });
-        }
-    </script>
 </body>
 </html>
