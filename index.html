@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             background-color: #000;
-            overflow-x: hidden; /* Prevent horizontal overflow */
+            overflow-x: hidden;
         }
 
         .gallery {
@@ -19,40 +19,42 @@
             align-items: center;
             height: 100vh;
             overflow-y: scroll;
-            scroll-snap-type: y mandatory;
+            scroll-snap-type: y mandatory; /* Enables snap scrolling */
+            scroll-behavior: smooth; /* Smooth scroll effect */
         }
 
         .gallery-item {
             width: 100%;
-            height: 100vh;
+            height: 100vh; /* Make each item take the full screen height */
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            scroll-snap-align: start;
-            background-color: #000;
+            margin-bottom: 20px;
+            scroll-snap-align: start; /* Align the item at the start of the viewport */
         }
 
         video {
             width: 100%;
+            max-width: 800px;
             height: auto;
-            max-height: 100%;
             object-fit: contain;
-            display: none;
-        }
-
-        video.playing {
-            display: block;
+            margin-bottom: 10px;
         }
 
         .info {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
             color: white;
             background: rgba(0, 0, 0, 0.5);
             padding: 10px;
             border-radius: 5px;
+        }
+
+        h3 {
+            margin: 0;
+        }
+
+        p {
+            margin: 0;
         }
     </style>
 </head>
@@ -60,7 +62,7 @@
     <div class="gallery">
         <!-- Gallery Item 1 -->
         <div class="gallery-item">
-            <video loop muted autoplay>
+            <video controls>
                 <source src="https://ik.imagekit.io/sh09gdtxr/%D8%B1%D8%A7%D9%86%D8%A7%20%D9%85%D9%86%D8%A8%D9%8A%D8%B9%D9%88%D8%B4%20%D8%A7%D9%84%D8%A8%D8%B1%D9%8A%D9%83.So,%20you%20might%20be%20thinking,%20why%20BrikaWell,%20the%20real%20question%20is,%20how%20do%20you%20like%20your%20Brika%20As%20a%20creative%20agency,%20we%20specialize%20in%20curating%20customized%20content%20strategies%20for%20brands%20and%20businesses,.mp4?updatedAt=1740887359495" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -72,7 +74,7 @@
 
         <!-- Gallery Item 2 -->
         <div class="gallery-item">
-            <video loop muted autoplay>
+            <video controls>
                 <source src="https://ik.imagekit.io/sh09gdtxr/Couple%20of%20shots%20from%20Brika's%20latest%20project%20with%20@byd_tunisie%20_Carcommercial%20_CreativeAgency%20_ContentCreation%20_Videography%20_Photography%20_GraphicDesign%20_AudiovisualProduction%20_Advertising%20_Communication%20_Marketing%20_C.mp4?updatedAt=1740887361348" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -84,7 +86,7 @@
 
         <!-- Gallery Item 3 -->
         <div class="gallery-item">
-            <video loop muted autoplay>
+            <video controls>
                 <source src="https://ik.imagekit.io/sh09gdtxr/Working%20with%20us%20means%20having%20a%20dedicated%20team%20that%20understands%20your%20vision%20and%20transforms%20it%20into%20reality.%20From%20creative%20strategy%20to%20execution,%20we%20make%20sure%20every%20step%20is%20seamless,%20delivering%20results%20that%20align%20with.mp4?updatedAt=1740887361085" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -96,7 +98,7 @@
 
         <!-- Gallery Item 4 -->
         <div class="gallery-item">
-            <video loop muted autoplay>
+            <video controls>
                 <source src="https://ik.imagekit.io/sh09gdtxr/Every%20brand%20has%20its%20own%20story%20and%20vision,%20and%20the%20way%20it_s%20told%20and%20communicated%20matters%20that_s%20why%20Brika%20Agency%20Is%20pleased%20to%20present%20to%20you%20a%20showreel%20that%20highlights%20the%20creation%20of%20digital%20content%20for%20@anissaaid.mp4?updatedAt=1740887287466" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -108,8 +110,8 @@
 
         <!-- Gallery Item 5 -->
         <div class="gallery-item">
-            <video loop muted autoplay>
-                <source src="https://ik.imagekit.io/sh09gdtxr/%D8%A7%D9%84%D9%81%D9%83%D8%B1%D8%A9%20%D9%84%D8%A7%20%D8%AA%D9%85%D9%88%D9%85%D8%AA.%20%20%20_______Stopthewar%20_Ceasefire%20_support%20_supportvideo.mp4?updatedAt=1740887266540" type="video/mp4">
+            <video controls>
+                <source src="https://ik.imagekit.io/sh09gdtxr/%D8%A7%D9%84%D9%81%D9%83%D8%B1%D8%A9%20%D9%84%D8%A7%20%D8%AA%D9%85%D9%88%D9%85.%20%20%20_______Stopthewar%20_Ceasefire%20_support%20_supportvideo.mp4?updatedAt=1740887266540" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <div class="info">
@@ -120,27 +122,19 @@
     </div>
 
     <script>
-        // Intersection Observer for detecting when a video is in the viewport
+        // Get all video elements
         const videos = document.querySelectorAll('video');
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                const video = entry.target;
-                if (entry.isIntersecting) {
-                    // Play video when it comes into view
-                    video.classList.add('playing');
-                    video.play();
-                } else {
-                    // Pause video when it goes out of view
-                    video.pause();
-                    video.classList.remove('playing');
-                }
-            });
-        }, { threshold: 0.5 }); // Trigger when 50% of the video is in view
-
-        // Observe all videos
+        // Add event listeners to all videos
         videos.forEach(video => {
-            observer.observe(video);
+            video.addEventListener('play', () => {
+                // Pause all other videos when one is played
+                videos.forEach(v => {
+                    if (v !== video) {
+                        v.pause();
+                    }
+                });
+            });
         });
     </script>
 </body>
